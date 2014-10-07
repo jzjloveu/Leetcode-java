@@ -17,14 +17,15 @@ public class ArrayListUtil {
       System.out.println();
     }
     else{
-      System.out.println("The list is null.");
+      System.out.println("[]");
       System.out.println();
     }
   }
 
   public static void printListList(List<List<Integer>> alist){
     if(alist != null && !alist.isEmpty()){
-      System.out.print("["); System.out.println();
+      System.out.print("["); 
+      System.out.println();
       for(int i=0;i<alist.size();i++){
         System.out.print("[");
         for(int j=0;j<alist.get(i).size();j++){
@@ -43,7 +44,7 @@ public class ArrayListUtil {
       System.out.println();
     }
     else{
-      System.out.println("The list is null.");
+      System.out.println("[]");
       System.out.println();
     }
   }
