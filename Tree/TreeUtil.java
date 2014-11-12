@@ -24,6 +24,38 @@ public class TreeUtil {
         return nodes[0];
     }
 
+    public static TreeNode buildLeetTree(String[] arr) {
+        if (arr.length==0 || arr[0].equals("#")) { return null;}
+        int alen = arr.length, nidx = 0;
+        TreeNode[] nodes = new TreeNode[arr.length];
+        for(int i=0;i<arr.length;i++) {
+            if(arr[i].equals("#")) { nodes[i] = null; }
+            else { nodes[i] = new TreeNode(Integer.parseInt(arr[i])); }
+        }
+        for(int index=0; index<arr.length/2;index++) {
+            if(2*index+1 < alen) {
+                if(nodes[index] == null) {
+                    nidx = index;
+                    while(nodes[nidx]==null && nidx<alen)
+                        nidx++;
+                    nodes[nidx].left = nodes[2*index+1];
+                }
+                else if(nidx > 0) { 
+                    nodes[nidx].left = nodes[2*index+1];
+                }
+                else { nodes[index].left = nodes[2*index+1]; }
+            }
+            if(2*index+2 < alen) {
+                if(nidx > 0) {
+                    nodes[nidx].right = nodes[2*index+2];
+                    nidx++;
+                }
+                else { nodes[index].right = nodes[2*index+2]; }
+            }
+        }
+        return nodes[0];
+    }
+
     public static TreeNode buildTreeInOrder(int[] arr){
         if(arr.length == 0) { return null;}
         TreeNode root = new TreeNode(arr[0]);

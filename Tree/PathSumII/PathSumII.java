@@ -64,12 +64,15 @@ public class PathSumII {
     }
 
     public static void main(String args[]){
-	    int[] arr = {5,4,8,11,13,4,7,2,1,5}; //{0,1,1};//
+	    // int[] arr = {5,4,8,11,13,4,7,2,1,5}; //{0,1,1};//
+        String[] arr = {"5","4","8","11","#","13","4","7","2","#","#","5","1"};
         int sum = 22; //1;//
-        TreeNode root = TreeUtil.buildTree(arr);
-        TreeUtil.printTreePre(root);
-        System.out.println();
-	    PathSumII sol = new PathSumII();
+        // TreeNode root = TreeUtil.buildTree(arr);
+        TreeNode root = TreeUtil.buildLeetTree(arr);
+        // TreeUtil.printTreePre(root);
+        // System.out.println();
+        TreeGphicPrint.printTree(root);
+        PathSumII sol = new PathSumII();
         TreeUtil.printListList(sol.pathSum(root,sum));
     }
 }

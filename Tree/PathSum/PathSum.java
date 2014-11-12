@@ -37,11 +37,14 @@ public class PathSum {
     }
     
     public static void main(String args[]){
-	      int[] arr = {5,4,8,11,13,4,7,2,1};
+	      // int[] arr = {5,4,8,11,13,4,7,2,1};
+        String[] arr = {"5","4","8","11","#","13","4","7","2","#","#","#","1"};
         int sum = 22;
-        TreeNode root = TreeUtil.buildTree(arr);
-        TreeUtil.printTreePre(root);
-        System.out.println();
+        // TreeNode root = TreeUtil.buildTree(arr);
+        TreeNode root = TreeUtil.buildLeetTree(arr);
+        // TreeUtil.printTreePre(root);
+        // System.out.println();
+        TreeGphicPrint.printTree(root);
 	      PathSum sol = new PathSum();
         System.out.println(sol.hasPathSum(root,sum));
     }
