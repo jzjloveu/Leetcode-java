@@ -49,3 +49,7 @@ public class Subsets {
         ArrayListUtil.printListList(arr);
     }
 }
+
+/*
+Use DFS.
+*/

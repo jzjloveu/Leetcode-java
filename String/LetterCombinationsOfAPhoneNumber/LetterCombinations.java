@@ -8,6 +8,7 @@ Input:Digit string "23"
 Output: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
 */
 import java.util.*;
+import stringListUtil.*;
 
 public class LetterCombinations {
    
@@ -31,18 +32,9 @@ public class LetterCombinations {
         }
     }
 
-    private static void printArrList(List<String> arr){
-        System.out.print("[");
-        for(int i=0;i<arr.size();i++){
-            if(i<arr.size()-1) System.out.print(arr.get(i)+",");
-            else System.out.print(arr.get(i));
-        }
-        System.out.print("]\n"); 
-    }
-
     public static void main(String args[]){
         String S = "23" ;
-        printArrList((new LetterCombinations()).letterCombinations(S)); 
+        StringListUtil.printList((new LetterCombinations()).letterCombinations(S)); 
     }
 }
 

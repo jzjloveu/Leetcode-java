@@ -1,27 +1,30 @@
 //Remove Nth Node From End of List
+/*
+ Given a linked list, remove the nth node from the end of list and return its head.
 
-// Given a linked list, remove the nth node from the end of list and return its head.
+ For example,
 
-// For example,
+ Given linked list: 1->2->3->4->5, and n = 2.
 
-// Given linked list: 1->2->3->4->5, and n = 2.
+ After removing the second node from the end, the linked list becomes 1->2->3->5.
 
-// After removing the second node from the end, the linked list becomes 1->2->3->5.
-
-// Note:
-// Given n will always be valid.
-// Try to do this in one pass.  
-
-// Definition for singly-linked list.
-class ListNode {
-     int val;
-     ListNode next;
-     ListNode(int x) {
-        val = x;
-        next = null;
-     }
-}
-
+ Note:
+ Given n will always be valid.
+ Try to do this in one pass.  
+*/
+package ListUtil;
+import ListUtil.*;
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
 public class RemoveNthFromEnd {
     public ListNode removeNthFromEnd(ListNode head, int n) {
         if(head==null){return head;}
@@ -40,30 +43,11 @@ public class RemoveNthFromEnd {
         return head.next;
     }
     
-    private static ListNode buildList(int[] arr){
-	ListNode head = new ListNode(0);
-        ListNode curr = head;
-        for(int i:arr){
-             curr.next = new ListNode(i);
-             curr = curr.next;
-        }
-        return head.next;
-    }
-    
-    private static void printList(ListNode head){
-    	while(head!=null){
-    	    System.out.print(head.val+" ");
-            head = head.next;	    
-    	}  
-        System.out.println();  	 
-    }
-    
     public static void main(String args[]){
-	int[] arr = {1,2,3,4,5,6,7,8,9};
-	RemoveNthFromEnd sol = new RemoveNthFromEnd();
-        ListNode head = sol.buildList(arr);
-        sol.printList(head);
-        head = sol.removeNthFromEnd(head,5);
-        sol.printList(head);
+		int[] arr = {1,2,3,4,5,6,7,8,9};
+		RemoveNthFromEnd sol = new RemoveNthFromEnd();
+        ListNode head = ListUtil.buildList(arr);
+        ListUtil.printList(head);
+        ListUtil.printList(sol.removeNthFromEnd(head,5));
     }
 }

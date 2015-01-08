@@ -1,7 +1,8 @@
 /*
 Search for a Range
 
-Given a sorted array of integers, find the starting and ending position of a given target value.
+Given a sorted array of integers, find the starting and ending 
+position of a given target value.
 
 Your algorithm's runtime complexity must be in the order of O(log n).
 
@@ -19,16 +20,16 @@ public class SearchForARange {
         int start = 0, end = A.length-1;
         while(start < end){
             int mid = (start+end)/2;
-            if(A[mid] < target){ start=mid+1; continue;}
-            end = mid;
+            if(A[mid] < target) start = mid+1;
+            else end = mid;
         }
         int lowbound = (A[start]==target)?start:-1;
         if(lowbound == -1) {return result; }
         start = lowbound; end = A.length;
         while(start < end){
             int mid = (start+end)/2;
-            if(A[mid] > target){ end=mid; continue;}
-            start = mid + 1;
+            if(A[mid] > target) end = mid;
+            else start = mid + 1;
         }
         int highbound = start - 1;
         result[0]=lowbound; result[1]=highbound;

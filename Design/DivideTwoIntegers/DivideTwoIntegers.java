@@ -2,11 +2,13 @@
 Divide Two Integers
 
 Divide two integers without using multiplication, division and mod operator.
+
+If it is overflow, return MAX_INT.
 */
 
 public class DivideTwoIntegers {
     public int divide(int dividend, int divisor) {
-        int sign = 1; long quot = 0;
+        int sign = 1; long quot = 0L;
         long dd = Math.abs((long)dividend);
         long ds = Math.abs((long)divisor);
         if(dividend < 0) { sign = -sign; }
@@ -20,7 +22,8 @@ public class DivideTwoIntegers {
                 k++;
             }
         }
-        return (sign > 0)? (int)quot : -(int)quot;
+        quot = (sign > 0)? quot : -quot;
+        return quot<Integer.MAX_VALUE?(int)quot:Integer.MAX_VALUE;
     }
 
     public static void main(String args[]){

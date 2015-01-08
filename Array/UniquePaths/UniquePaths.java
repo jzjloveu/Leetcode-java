@@ -32,6 +32,7 @@ public class UniquePaths {
 }
 
 /*
+One dimension DP: Step[i][j] = Step[i-1][j] + Step[i][j-1].
 This is an easy problem. From the description we know that, 
 the robot can only move down or right, which means, if the 
 robot is now in position (x,y), then the position before this 

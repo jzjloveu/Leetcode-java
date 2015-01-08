@@ -1,17 +1,18 @@
 /*
 Longest Palindromic Substring
 
-Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.
+Given a string S, find the longest palindromic substring in S. 
+You may assume that the maximum length of S is 1000, and there 
+exists one unique longest palindromic substring.
 */
  
 
 public class LongestPalindrome2 {
 
     public String longestPalindrome(String s) {
-        int slen = s.length();
-        boolean[][] subP = new boolean[slen][slen];
+        boolean[][] subP = new boolean[s.length()][s.length()];
         int maxlen = 0, start = 0, end = 0;
-        for(int j=0;j<slen;j++){
+        for(int j=0;j<s.length();j++){
             for(int i=0;i<j;i++){
                 subP[i][j] = s.charAt(i)==s.charAt(j) && (j==i+1 || subP[i+1][j-1]); 
                 if(subP[i][j] && maxlen<j-i+1){
@@ -27,9 +28,28 @@ public class LongestPalindrome2 {
     
     public static void main(String args[]){
         //String s = "aaa";//"abccb";
-String s =        "civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth";
-
-        System.out.println((new LongestPalindrome2()).longestPalindrome(s));
+        String s1="nypdmqqgauepeyfvwcdpbmmaxfwxmmtswfuwldtvqcisywalfnvovuordczxlyzqmslxil"+
+        "pnenbuwbcpebneovitwkkswsijajnkwkfbxnulmwotgrmpklntfyjavccbrgwqynryeoswmhsq"+
+        "zcwnudkuvfkikjxjkjpghsytjfkpvkjpvblamdeegeohospporbtorkbuggbawgodhxpscfksj"+
+        "birxvjyjapwwushmnqsxktnslvonlwvuseinrmwvfqjgzpkwcqfzfdbbmcngmsoeegudwjvldq"+
+        "maomwbqvijesnpxiqvtfeiqebrfjhtvjdwkopyfzaslewdjnkmalvfinbuouwcgnfecjtdzwyc"+
+        "xrynxepbcsroyzrsgiiuaszvatwyuxinwhni";
+        String s2 = "civilwartestingwhetherthatnaptionoranynartionsoconceivedands"+
+        "odedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecome"+
+        "todedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavethe"+
+        "irlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddot"+
+        "hisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthis"+
+        "groundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfarabove"+
+        "ourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwh"+
+        "atwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertob"+
+        "ededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonob"+
+        "lyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbefor"+
+        "eusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichthe"+
+        "ygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadsh"+
+        "allnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedoman"+
+        "dthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth";
+        System.out.println((new LongestPalindrome2()).longestPalindrome(s1));
+        System.out.println((new LongestPalindrome2()).longestPalindrome(s2));
     }
 }
 
@@ -49,7 +69,7 @@ define a relation,
 P[i,j] = string area [i,j] whether is palindrome.
 
 look at an example: S="abccb",
-  S =   a  b  c  c  b
+  S   = a  b  c  c  b
 Index = 0  1  2  3  4
 
 P[0,0] = true  //each char is a palindrome
@@ -62,4 +82,7 @@ so we can find the rule as follow:
 P[i,j] = true  if i == j
        = S[i]==S[j]   if j == i+1
        = S[i]==S[j] && P[i+1][j-1]  if j > i+1
+
+Manacher’s algorithm:
+http://leetcode.com/2011/11/longest-palindromic-substring-part-ii.html
 */

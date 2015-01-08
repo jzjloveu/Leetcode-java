@@ -1,13 +1,15 @@
 /*
 Generate Parentheses 
 
-Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+Given n pairs of parentheses, write a function to generate all combinations of 
+well-formed parentheses.
 
 For example, given n = 3, a solution set is:
 
 "((()))", "(()())", "(())()", "()(())", "()()()"
 */
 import java.util.*;
+import stringListUtil.*;
 
 public class GenerateParenthesis {
    
@@ -27,21 +29,13 @@ public class GenerateParenthesis {
         }
     }
 
-    private static void printArrList(List<String> arr){
-        System.out.print("[");
-        for(int i=0;i<arr.size();i++){
-            if(i<arr.size()-1) System.out.print(arr.get(i)+",");
-            else System.out.print(arr.get(i));
-        }
-        System.out.print("]\n"); 
-    }
-
     public static void main(String args[]){
-       printArrList((new GenerateParenthesis()).generateParenthesis(3)); 
+       StringListUtil.printList((new GenerateParenthesis()).generateParenthesis(3)); 
     }
 }
 
 /*
-The classic question from the Cracking the Code Interview. DFS is enough. Note that it is wrong when the number of ')' is more than '(' in the current string. e.g. ()()).
+The classic question from the Cracking the Code Interview. DFS is enough. 
+Note that it is wrong when the number of ')' is more than '(' in the current string. e.g. ()()).
 */
 

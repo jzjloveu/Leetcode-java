@@ -1,7 +1,9 @@
 /*
 Longest Palindromic Substring
 
-Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.
+Given a string S, find the longest palindromic substring in S. 
+You may assume that the maximum length of S is 1000, and there 
+exists one unique longest palindromic substring.
 */
  
 
@@ -34,8 +36,20 @@ public class LongestPalindrome {
 
     public static void main(String args[]){
         //String s = "aaa";//"abccb";
-String s =        "civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth";
-
+        String s = "civilwartestingwhetherthatnaptionoranynartionsoconceivedands"+
+        "odedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecome"+
+        "todedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavethe"+
+        "irlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddot"+
+        "hisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthis"+
+        "groundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfarabove"+
+        "ourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwh"+
+        "atwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertob"+
+        "ededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonob"+
+        "lyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbefor"+
+        "eusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichthe"+
+        "ygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadsh"+
+        "allnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedoman"+
+        "dthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth";
         System.out.println((new LongestPalindrome()).longestPalindrome(s));
     }
 }

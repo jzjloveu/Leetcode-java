@@ -56,3 +56,8 @@ public class TwoSum {
         System.out.println(arr[0]+", "+arr[1]);
     }
 }
+
+/*
+Need to notice the situation when two numbers are same:
+num=[0,4,3,0], target=0
+*/

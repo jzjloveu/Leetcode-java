@@ -1,7 +1,10 @@
 /*
 Longest Substring Without Repeating Characters 
 
-Given a string, find the length of the longest substring without repeating characters. For example, the longest substring without repeating letters for "abcabcbb" is "abc", which the length is 3. For "bbbbb" the longest substring is "b", with the length of 1.
+Given a string, find the length of the longest substring without 
+repeating characters. For example, the longest substring without 
+repeating letters for "abcabcbb" is "abc", which the length is 3. 
+For "bbbbb" the longest substring is "b", with the length of 1.
 */
 
 public class LengthOfLongestSubstring {
@@ -29,7 +32,9 @@ public class LengthOfLongestSubstring {
 }
 
 /*
-Use two pointer scan string from left to right, when front pointer meet reapt character, we get a max substring length; then start from rear point + 1 to scan over till the end.
+Use two pointer scan string from left to right, when front pointer 
+meet reapt character, we get a max substring length; then start from 
+rear point + 1 to scan over till the end.
 Example: 
 index   0 1 2 3 4 5 6 7 8 9 10 11 
 str     q p x r j x k l t z y  x

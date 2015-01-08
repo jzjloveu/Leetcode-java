@@ -38,3 +38,6 @@ public class Anagrams {
     }
 }
 
+/*
+key = sorted word, value = [word1, word2, word3, ...]
+*/

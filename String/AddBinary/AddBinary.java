@@ -20,7 +20,7 @@ public class AddBinary {
             int bi = (j>=0)?b.charAt(j)-'0':0;
 			int val = (ai+bi+carry) % 2;
             carry = (ai+bi+carry) / 2;
-            result = "" + val +result;
+            result = "" + val + result;
 		}
         if(carry == 1)
 			result = "1" + result;

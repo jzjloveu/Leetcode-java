@@ -6,7 +6,6 @@ Given two numbers represented as strings, return multiplication of the numbers a
 Note: The numbers can be arbitrarily large and are non-negative.
 */
 import java.util.*;
-//import java.lang.*;
 
 public class Multiply {
    
@@ -39,17 +38,15 @@ public class Multiply {
 }
 
 /*
-Straight forward idea. Just like the way we multiply numbers. Don't forget considering the carry and be careful. e.g.
-exit()
+Straight forward idea. Just like the way we multiply numbers. Don't forget 
+considering the carry and be careful. e.g.
   123*456,
 
 what we usually do is:
 
-
       123
-*     456
+x     456
 -----------
-
       738
      615
 +   492

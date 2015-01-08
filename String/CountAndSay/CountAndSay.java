@@ -37,13 +37,17 @@ public class CountAndSay {
 
     public static void main(String args[]){
         int[] num = {1,2,3,4,5,6};
+        CountAndSay sol = new CountAndSay();
         for(int n:num)
-            System.out.println((new CountAndSay()).countAndSay(n));
+            System.out.println(sol.countAndSay(n));
     }
 }
 
 /*
 The better problem declare:
-when n=1 output string '1'(base case); when n=2, count the number of previous digit, since last string is '1', so output is '11; when n=3, previous string is '11', since there is two '1', so output is '21'; and when n=4, so there is one '2' and one '1', so output is '1211'.
+when n=1 output string '1'(base case); when n=2, count the number of previous 
+digit, since last string is '1', so output is '11; when n=3, previous string 
+is '11', since there is two '1', so output is '21'; and when n=4, so there is 
+one '2' and one '1', so output is '1211'.
 */
 

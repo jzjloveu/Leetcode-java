@@ -37,6 +37,6 @@ public class RotateImage  {
 
 /*
 In-place way is:
-Swap elements by diagonal line matrix[0][n-1] to matrix[n-1][0],
+Swap elements by diagonal line(matrix[0][n-1] to matrix[n-1][0]),
 then swap elements again by horizontal middile line (n+1)/2.
 */

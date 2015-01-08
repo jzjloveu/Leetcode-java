@@ -41,7 +41,7 @@ public class PermutationSequence  {
 }
 
 /*
-Let num = [1,2,3,...,n]. Since kth = d*(n-1)!, so the first digit is k/(n-1)!, 
+Let num = [1,2,3,...,n]. kth-permutation = digit*(n-1)!, so the first digit is k/(n-1)!, 
 then let k = k % (n-1)! and remove this digit from num. The second digit is k/(n-2)!, 
 then let k = k % (n-2)! and remove this digit from num and so on.
 */

@@ -14,17 +14,17 @@ In this case, you should return "/".
 Another corner case is the path might contain multiple slashes '/' together, such as "/home//foo/".
 In this case, you should ignore redundant slashes and return "/home/foo".
 */
-
+import java.util.Stack;
 
 public class SimplifyPath {
    
     public String simplifyPath(String path) {
-        java.util.Stack<String> pathsatck = new java.util.Stack<String>();
+        Stack<String> pathsatck = new Stack<String>();
         pathsatck.push("/");
         String[] strarr = path.replace("/"," ").split(" ");
         for(String s:strarr){
-            if(s.equals("") || s.equals(".")) continue;
-            if(s.equals("..")){if(pathsatck.size()>1) pathsatck.pop();}
+            if(s.isEmpty() || s.equals(".")) continue;
+            if(s.equals("..")){ if(pathsatck.size()>1) pathsatck.pop();}
             else pathsatck.push(s+"/");
 		}
         String simplepath = "";

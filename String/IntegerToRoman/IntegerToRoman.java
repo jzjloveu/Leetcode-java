@@ -32,7 +32,7 @@ public class IntegerToRoman {
     }
 
     public static void main(String args[]){
-        int num = 6;
+        int num = 14;//6;
         System.out.println((new IntegerToRoman()).intToRoman(num));
     }
 }
@@ -50,9 +50,9 @@ M   1000
 
 Idea: 
 Need handle every digit in the range of roman number,
-1<=digit <=3
-digit =4
+1<= digit <=3
+digit = 4
 digit = 5
-5<digit<=8
-digit =9
+5 < digit <= 8
+digit = 9
 */

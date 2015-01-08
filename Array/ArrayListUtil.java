@@ -3,14 +3,20 @@ package arrayUtil;
 import java.util.*;
 
 public class ArrayListUtil {
-  public static void printList(List<Integer> alist){
+  public static <T> void printList(List<T> alist){  
     if(alist != null && !alist.isEmpty()){
       System.out.print("[");
       for(int i=0;i<alist.size();i++){
-        if(i == alist.size()-1)
-          System.out.print(alist.get(i));
-        else
-          System.out.print(alist.get(i)+",");
+        if(i == alist.size()-1){
+          if(alist.get(i).getClass().getName().split("\\.")[2].equals("String"))
+            System.out.print("\""+alist.get(i)+"\"");
+          else System.out.print(alist.get(i));
+        }
+        else{
+          if(alist.get(i).getClass().getName().split("\\.")[2].equals("String"))
+            System.out.print("\""+alist.get(i)+"\",");
+          else System.out.print(alist.get(i)+",");
+        }
 
       }
       System.out.print("]");

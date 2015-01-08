@@ -21,7 +21,7 @@ public class PalindromeNumber {
         int k = 1;
         while(x/k >= 10){ k *= 10; }
         while(x > 0) {
-            if(x/k != x%10) { return false; }
+            if(x/k != x%10) { return false; } 
 			x = (x - x/k * k)/10;
             k /= 100;
         }

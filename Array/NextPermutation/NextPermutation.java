@@ -16,7 +16,6 @@ outputs are in the right-hand column.
 1,1,5 -> 1,5,1
 */
 import arrayUtil.*;
-import java.util.*;
 
 public class NextPermutation {
     public void nextPermutation(int[] num) {
@@ -51,7 +50,7 @@ public class NextPermutation {
 
 /*
 1. From right to left, find the first digit (PartitionNumber) which 
-violates the increase trend.
+violates the decrease trend.
 2. From right to left, find the first digit which is larger than 
 PartitionNumber, call it ChangeNumber.
 3. Swap PartitionNumber and ChangeNumber.

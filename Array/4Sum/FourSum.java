@@ -55,5 +55,5 @@ public class FourSum {
 }
 
 /*
-This method is like 3 sum closest.s
+This method is like 3 sum closest.
 */

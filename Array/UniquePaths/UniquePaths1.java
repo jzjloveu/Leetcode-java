@@ -28,3 +28,8 @@ public class UniquePaths1 {
             (new UniquePaths1()).uniquePaths(m,n));
     }
 }
+
+/*
+m x n matrix to the end needs m-1 steps down and n-1 steps right,
+so we need to calculate C(m-1+n-1,n-1) or C(m-1+n-1,m-1)
+*/

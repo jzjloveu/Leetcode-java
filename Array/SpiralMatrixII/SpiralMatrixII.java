@@ -1,7 +1,8 @@
 /*
 Spiral Matrix II 
 
-Given an integer n, generate a square matrix filled with elements from 1 to n2 in spiral order.
+Given an integer n, generate a square matrix filled with elements from 
+1 to n2 in spiral order.
 
 For example,
 Given n = 3,
@@ -18,7 +19,6 @@ import java.util.*;
 
 public class SpiralMatrixII {
     public int[][] generateMatrix(int n) {
-        //if(n == 0) { return null; }
         int maxUp = 0,  maxLeft = 0;
         int maxDown = n - 1, maxRight = n - 1;
         int[][] matrix = new int[n][n];
@@ -45,9 +45,8 @@ public class SpiralMatrixII {
                     matrix[i][maxLeft] = ++curr;
                 maxLeft++;
             }
-             if(maxLeft > maxRight || maxUp > maxDown)
+            if(maxLeft > maxRight || maxUp > maxDown)
                  break;
-            //if(curr >= n*n) { break; }
             direct = (direct + 1) % 4;
         }
         return matrix; 

@@ -51,3 +51,9 @@ public class ThreeSumClosest {
         System.out.println((new ThreeSumClosest()).threeSumClosest(num,target));
     }
 }
+
+/*
+The code is slight different from the 3 sum problem, 
+just change the if condition, the key point is to get 
+the distances between the target and the output value.
+*/

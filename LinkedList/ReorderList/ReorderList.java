@@ -7,20 +7,22 @@
 
 // For example,
 // Given {1,2,3,4}, reorder it to {1,4,2,3}. 
-
-// Definition for singly-linked list.
-class ListNode {
-     int val;
-     ListNode next;
-     ListNode(int x) {
-        val = x;
-        next = null;
-     }
-}
-
+package ListUtil;
+import ListUtil.*;
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
 public class ReorderList {
     public void reorderList(ListNode head) {
-	if(head == null || head.next == null ){ return;}
+		if(head == null || head.next == null ){ return;}
         ListNode fast, slow;
         fast = slow = head;
         while(fast.next!=null && fast.next.next!=null){
@@ -31,47 +33,28 @@ public class ReorderList {
         fast = slow.next;
         while(fast.next != null){
         	ListNode temp = slow.next;
-                slow.next = fast.next;
-                fast.next = fast.next.next;
-                slow.next.next = temp;
+            slow.next = fast.next;
+            fast.next = fast.next.next;
+            slow.next.next = temp;
         }
         // insert reverse part to reorder
         fast = head;
         while(slow != fast && slow.next != null){
-		ListNode temp = fast.next;
-                fast.next = slow.next;
-                slow.next = slow.next.next;
-                fast.next.next =temp;
-                fast = fast.next.next;
+			ListNode temp = fast.next;
+            fast.next = slow.next;
+            slow.next = slow.next.next;
+            fast.next.next =temp;
+            fast = fast.next.next;
         }
-    }
-      
-    private static ListNode buildList(int[] arr){
-	ListNode head = new ListNode(0);
-        ListNode curr = head;
-        for(int i:arr){
-		curr.next = new ListNode(i);
-		curr = curr.next;
-        }
-        return head.next;
-    }
-    
-    private static void printList(ListNode head){
-        if (head==null){ System.out.print("null");}
-    	while(head!=null){
-		System.out.print(head.val+" ");
-		head = head.next;	    
-    	}  
-        System.out.println();  	 
     }
     
     public static void main(String args[]){
-	int[] arr = {1,2,3,4,5,6,7,8,9};
-	ReorderList sol = new ReorderList();
-        ListNode head = sol.buildList(arr);
-        sol.printList(head);
+		int[] arr = {1,2,3,4,5};
+		ReorderList sol = new ReorderList();
+        ListNode head = ListUtil.buildList(arr);
+        ListUtil.printList(head);
         sol.reorderList(head);
-        sol.printList(head);
+        ListUtil.printList(head);
     }
 }
 

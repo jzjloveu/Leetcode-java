@@ -91,7 +91,7 @@ public class SwapTwoLinkedList {
         head = sol.swapTwoLinkedList2(head,1,9);
         sol.printList(head);
     }
-
+}
 /* 
  * swap two nodes in linked list scheme:
  * node1->node2->node3->node3->node4

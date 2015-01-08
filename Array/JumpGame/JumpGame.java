@@ -35,6 +35,6 @@ public class JumpGame {
 
 /*
 Note that the A[i] means the maximum jump length. In other words, 
-it is possible that we move j step (<A[i]) when we at A[i], 
+it is possible that we move j steps (<A[i]) when we at A[i], 
 e.g. if A[i]=2, we can move either 1 or 2 steps.
 */

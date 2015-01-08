@@ -3,7 +3,6 @@ Longest Common Prefix
 
 Write a function to find the longest common prefix string amongst an array of strings.
 */
-import java.util.*;
 
 public class LongestCommonPrefix {
    
@@ -11,8 +10,8 @@ public class LongestCommonPrefix {
         int strslen = strs.length;
         if(strslen == 0) return "";
         if(strslen == 1) return strs[0];
-        int minlen = strs[0].length();
-        for(String s:strs) minlen = (s.length() < minlen)? s.length():minlen;
+        int minlen = Integer.MAX_VALUE;
+        for(String s:strs) minlen = Math.min(minlen,s.length());
         String compref = "";
         for(int i=0;i<minlen;i++){
             char chtmp = strs[0].charAt(i);
@@ -30,6 +29,7 @@ public class LongestCommonPrefix {
 }
 
 /*
-The idea is scan from the first character, if it is same for all the strings, go to the next character.Return the string until meet the different character.
+The idea is scan from the first character, if it is same for all the strings, go to the 
+next character.Return the string until meet the different character.
 */
 
