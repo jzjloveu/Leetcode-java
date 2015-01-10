@@ -11,7 +11,7 @@
 
 // For the purpose of this problem, we define empty string as valid palindrome. 
 
-public class IsPalindrome {
+public class ValidPalindrome {
 
     public boolean isPalindrome(String s) {
         if(s.length() < 2){return true;}
@@ -28,8 +28,8 @@ public class IsPalindrome {
     public static void main(String args[]){
         String str1 = "A man, a plan, a canal: Panama";
         String str2 = "race a car";
-        IsPalindrome sol = new IsPalindrome();
-	System.out.println("\""+str1+"\"");
+        ValidPalindrome sol = new ValidPalindrome();
+        System.out.println("\""+str1+"\"");
         System.out.println(sol.isPalindrome(str1));
         System.out.println("\""+str2+"\"");
         System.out.println(sol.isPalindrome(str2));

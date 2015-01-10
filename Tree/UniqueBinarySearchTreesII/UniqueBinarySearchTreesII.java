@@ -69,11 +69,11 @@ the right subtree with the right part.
 
 So first we can have
 void dfs (int st, int ed){
-    if (st>ed) {   // generate a null node }
+    if (st>ed) { // generate a null node }
     else{
       for (int i=st;i<=ed;i++){  
-        dfs(st,i-1,   );     //generate left subtree 
-        dfs(i+1,ed,   );  // generate right subtree
+        dfs(st,i-1); //generate left subtree 
+        dfs(i+1,ed); // generate right subtree
       }
     }
 }

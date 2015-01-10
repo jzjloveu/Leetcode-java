@@ -18,7 +18,7 @@ Return
 import arrayUtil.*;
 import java.util.*;
 
-public class Generate {
+public class PascalsTriangle {
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> triangle = new ArrayList<List<Integer>>();
         List<Integer> arr = new ArrayList<Integer>();
@@ -28,7 +28,6 @@ public class Generate {
         arr = new ArrayList<Integer>();
         arr.add(1); arr.add(1); triangle.add(arr);
         if(numRows == 2) { return triangle;}
-
         for (int i=2;i<numRows;i++){
             List<Integer> tmp = new ArrayList<Integer>();
             tmp.add(1);
@@ -43,7 +42,7 @@ public class Generate {
 
     public static void main(String args[]){
         int numRows = 5;
-        ArrayListUtil.printListList((new Generate()).generate(numRows));
+        ArrayListUtil.printListList((new PascalsTriangle()).generate(numRows));
     }
 }
 

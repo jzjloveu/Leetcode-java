@@ -10,7 +10,8 @@ The right subtree of a node contains only nodes with keys greater than the node'
 Both the left and right subtrees must also be binary search trees.
 
 OJ's Binary Tree Serialization:
-The serialization of a binary tree follows a level order traversal, where '#' signifies a path terminator where no node exists below.
+The serialization of a binary tree follows a level order traversal, where '#' signifies 
+a path terminator where no node exists below.
 
 Here's an example:
    1
@@ -36,18 +37,21 @@ import treeUtil.*;
 
 public class ValidateBinarySearchTree1 {
     public boolean isValidBST(TreeNode root) {
-        return checkBST(Integer.MIN_VALUE,root,Integer.MAX_VALUE);
+        return verifyBST(root,false,false,0,0);
     }
 
-    private boolean checkBST(int Min, TreeNode root, int Max){
+    private boolean verifyBST(TreeNode root, boolean left, boolean right,
+            int lmax, int rmin){
         if(root == null) { return true; }
-        if(!(Min < root.val && root.val < Max)) { return false; }
-        return checkBST(Min,root.left,root.val) && 
-            checkBST(root.val,root.right,Max);
+        if(left && root.val>=lmax) { return false; }
+        if(right && root.val<=rmin) { return false; }
+        boolean leftValid = verifyBST(root.left,true,right,root.val,rmin);
+        boolean rightValid = verifyBST(root.right,left,true,lmax,root.val);
+        return leftValid && rightValid;
     }
     
     public static void main(String args[]){
-	    int[] arr1 = {0}; // {5,4,8,11,13,6,7,2,1}; // {1,1}; //
+	    int[] arr1 = {0}; // {1,1}; //{5,4,8,11,13,6,7,2,1}; //
         TreeNode root1 = TreeUtil.buildTreeInOrder(arr1);
         TreeNode root2 = TreeUtil.buildTree(arr1);
         ValidateBinarySearchTree1 sol = new ValidateBinarySearchTree1();
@@ -57,6 +61,9 @@ public class ValidateBinarySearchTree1 {
 }
 
 /*
-Using left bound and right to validate.
-Think more about the node than tree.
+For each subtree, give it max and min bound, if outside return fasle.
+But for root node there is no bound.
+For each level root, left subtree max bound should less than root,
+right subtree min bound should greater than root.
+Notice that for recursive call, should input parent node value.
 */

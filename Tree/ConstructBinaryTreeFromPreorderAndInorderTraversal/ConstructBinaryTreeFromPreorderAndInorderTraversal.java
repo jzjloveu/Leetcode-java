@@ -44,6 +44,6 @@ public class ConstructBinaryTreeFromPreorderAndInorderTraversal {
 }
 
 /*
-Recuesive method:
+Recursive method:
 This problem is similar as Construct Binary Tree From Inorder And Postorder Traversal.
 */

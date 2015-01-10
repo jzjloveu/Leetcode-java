@@ -23,7 +23,7 @@ public class ConstructBinaryTreeFromInorderAndPostorderTraversal {
     public TreeNode buildTree(int[] inorder, int[] postorder) {
     	if(inorder.length == 0 ) { return null; } //inorder is empty
     	TreeNode root = new TreeNode(postorder[postorder.length-1]);
-    	int rootIndex = 0;
+        int rootIndex = 0;
     	for(int i=0;i<inorder.length;i++)
 			if(inorder[i]==postorder[postorder.length-1]){ rootIndex=i; break; }
     	root.left = buildTree(Arrays.copyOfRange(inorder,0,rootIndex),
@@ -44,7 +44,7 @@ public class ConstructBinaryTreeFromInorderAndPostorderTraversal {
 }
 
 /*
-Recuesive method:
+Recursive method:
 1. Find the last node in the postorder vector, which is the root of the current tree.
 2. Find the position of root node in the inorder vector, which divide the inorder vector 
 into 2 sub tree inorder vectors. Left part is the left sub-tree, right part is the right sub-tree.

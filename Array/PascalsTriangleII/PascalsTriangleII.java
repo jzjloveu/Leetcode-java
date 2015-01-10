@@ -12,7 +12,7 @@ Could you optimize your algorithm to use only O(k) extra space?
 import arrayUtil.*;
 import java.util.*;
 
-public class Generate {
+public class PascalsTriangleII {
     public List<Long> getRow(int rowIndex) {
         List<Long> triangle = new ArrayList<Long>();
         triangle.add(1L);
@@ -34,8 +34,17 @@ public class Generate {
 
     public static void main(String args[]){
         int rowIndex = 11;
-        ArrayListUtil.printList((new Generate()).getRow(rowIndex));
+        ArrayListUtil.printList((new PascalsTriangleII()).getRow(rowIndex));
     }
 }
 
+/*
+This can be solved in according to the formula to generate 
+the kth element in nth row of Pascal's Triangle:
 
+r(k) = r(k-1) * (n+1-k)/k,
+
+where r(k) is the kth element of nth row. The formula just 
+use the previous element to get the new one. The start point is 1.
+Once get the formula, it is easy to generate the nth row.
+*/

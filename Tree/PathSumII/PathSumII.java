@@ -46,12 +46,9 @@ public class PathSumII {
     
     private static void getPath(TreeNode root, List<Integer> valList, int currSum){
         if(root == null){ return;}
-        if(root.left == null && root.right == null){
-            if(currSum == summ){
-                List<Integer> temp=new ArrayList<Integer> (valList);
-                paths.add(temp);
-            }
-        }
+        if(root.left == null && root.right == null)
+            if(currSum == summ)
+                paths.add(new ArrayList<Integer>(valList));
         if(root.left != null){
             valList.add(root.left.val);
             getPath(root.left,valList,currSum + root.left.val);

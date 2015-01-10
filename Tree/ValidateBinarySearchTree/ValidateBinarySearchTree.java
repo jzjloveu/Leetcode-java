@@ -36,21 +36,18 @@ import treeUtil.*;
 
 public class ValidateBinarySearchTree {
     public boolean isValidBST(TreeNode root) {
-        return verifyBST(root,false,false,0,0);
+        return checkBST(Integer.MIN_VALUE,root,Integer.MAX_VALUE);
     }
 
-    private boolean verifyBST(TreeNode root, boolean left, boolean right,
-            int lmax, int rmin){
+    private boolean checkBST(int Min, TreeNode root, int Max){
         if(root == null) { return true; }
-        if(left && root.val>=lmax) { return false; }
-        if(right && root.val<=rmin) { return false; }
-        boolean leftValid = verifyBST(root.left,true,right,root.val,rmin);
-        boolean rightValid = verifyBST(root.right,left,true,lmax,root.val);
-        return leftValid && rightValid;
+        if(!(Min < root.val && root.val < Max)) { return false; }
+        return checkBST(Min,root.left,root.val) && 
+            checkBST(root.val,root.right,Max);
     }
     
     public static void main(String args[]){
-	    int[] arr1 = {0}; // {1,1}; //{5,4,8,11,13,6,7,2,1}; //
+	    int[] arr1 = {0}; // {5,4,8,11,13,6,7,2,1}; // {1,1}; //
         TreeNode root1 = TreeUtil.buildTreeInOrder(arr1);
         TreeNode root2 = TreeUtil.buildTree(arr1);
         ValidateBinarySearchTree sol = new ValidateBinarySearchTree();
@@ -60,9 +57,6 @@ public class ValidateBinarySearchTree {
 }
 
 /*
-For each subtree, give it max and min bound, if outside return fasle.
-But for root node there is no bound.
-For each level root, left subtree max bound should less than root,
-right subtree min bound should greater than root.
-notice that for recursive call, should input parent node value.
+Using left bound and right to validate.
+Think more about the node than tree.
 */

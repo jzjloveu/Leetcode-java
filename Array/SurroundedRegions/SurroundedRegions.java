@@ -20,7 +20,7 @@ X O X X
 */
 import java.util.*;
 
-public class Solve {
+public class SurroundedRegions {
    
     public void solve(char[][] board) {
         if(board==null || board.length==0){ return;}
@@ -71,12 +71,14 @@ public class Solve {
         //char[][] A = null;
         char[][] A = {{'X','O','X','O','X','O'},{'O','X','O','X','O','X'},{'X','O','X','O','X','O'},{'O','X','O','X','O','X'}};
         print2d(A);System.out.println();
-        (new Solve()).solve(A);
+        (new SurroundedRegions()).solve(A);
         print2d(A);
     }
 }
 
 /*
 Search is a way to solve this problem!
-If 'O' in the four sides of baord, they won't be surround by 'X'; so we can start from those 'O', and using BFS to get all the conjoint 'O', then repalce then to '$'. After that, just repalce all rest 'O' to 'X', then replace all '$' back to 'O'. 
+If 'O' in the four sides of baord, they won't be surround by 'X'; so we can start from those 'O', 
+and using BFS to get all the conjoint 'O', then repalce then to '$'. After that, just repalce all 
+rest 'O' to 'X', then replace all '$' back to 'O'. 
 */

@@ -43,7 +43,7 @@ public class SumRoottoLeafNumbers {
     }
 
     private void dfs(TreeNode root, int value){
-        if(root == null) { return; }
+        if(root == null) return; 
         if(root.left == null && root.right == null)
             result += value * 10 + root.val;
 
