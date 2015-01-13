@@ -1,12 +1,14 @@
-// Reorder List
+/*
+Reorder List
 
-// Given a singly linked list L: L0->L1->...->Ln-1->Ln,
-// reorder it to: L0->Ln->L1->Ln-1->L2->Ln-2->...
+Given a singly linked list L: L0->L1->...->Ln-1->Ln,
+reorder it to: L0->Ln->L1->Ln-1->L2->Ln-2->...
 
-// You must do this in-place without altering the nodes' values.
+You must do this in-place without altering the nodes' values.
 
-// For example,
-// Given {1,2,3,4}, reorder it to {1,4,2,3}. 
+For example,
+Given {1,2,3,4}, reorder it to {1,4,2,3}. 
+*/
 package ListUtil;
 import ListUtil.*;
 /**
@@ -50,10 +52,9 @@ public class ReorderList {
     
     public static void main(String args[]){
 		int[] arr = {1,2,3,4,5};
-		ReorderList sol = new ReorderList();
-        ListNode head = ListUtil.buildList(arr);
+		ListNode head = ListUtil.buildList(arr);
         ListUtil.printList(head);
-        sol.reorderList(head);
+        (new ReorderList()).reorderList(head);
         ListUtil.printList(head);
     }
 }
@@ -62,5 +63,6 @@ public class ReorderList {
 So the algorithm implemented below can be summarized as:
 Step 1  Find the middle pointer of the linked list (you can use the slow/fast pointers)
 Step 2  Reverse the second part of the linked list (from middle->next to the end)
-Step 3  Do the reordering. (inset every element in the second part in between the elements in the first part)
+Step 3  Do the reordering. (inset every element in the second part in between the 
+elements in the first part)
 */

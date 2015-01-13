@@ -45,8 +45,7 @@ public class AddTwoNumbers {
     }
     
     public static void main(String args[]){
-        int[] arr1 = ListUtil.RandomArray(10,5);
-        int[] arr2 = ListUtil.RandomArray(10,5);
+        int[] arr1 = ListUtil.RandomArray(20,10);
         AddTwoNumbers sol = new AddTwoNumbers();
         ListNode l1 = ListUtil.buildList(arr1);
         ListNode l2 = ListUtil.buildList(arr2);

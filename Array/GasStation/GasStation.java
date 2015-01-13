@@ -22,10 +22,7 @@ public class GasStation {
         for(int i=0;i<gas.length;i++){
           sum += gas[i] - cost[i];
           total += gas[i] - cost[i];
-          if(sum < 0){
-            sum = 0;
-            k = i;
-          }
+          if(sum < 0) { sum = 0; k = i; }
         }
         return (total >= 0)? k+1:-1; 
     }
@@ -38,8 +35,8 @@ public class GasStation {
 }
 
 /*
-if sum(gas) < sum(cost) then answer is -1, otherwise it should have answer is 
+If sum(gas) < sum(cost) then answer is -1, otherwise it should have answer is 
 start index. 
-Idea of if have start index, sum = gas[i] - cost[i], when sum < 0, ignore it, 
-since total must >=0 then rest of sum should >=0 
+Idea is if have start index, sum = gas[i] - cost[i], when sum < 0, ignore it, 
+since total must >=0 then rest of sum should be >=0 
 */

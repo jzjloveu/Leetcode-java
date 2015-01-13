@@ -71,7 +71,7 @@ public class CloneGraph {
 /*
 Using DFS.
 So call clone means deep copy. For this problem, there are two major tasks:
-(1)  Traverse the graph
+(1)  Traverse the graph.
 (2)  Construct the new graph at the same time. 
-Same as clone a linked list
+Same as clone a linked list.
 */

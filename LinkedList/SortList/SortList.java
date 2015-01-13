@@ -1,17 +1,21 @@
-// Sort List 
+/*
+Sort List 
 
-// Sort a linked list in O(n log n) time using constant space complexity.
-
-// Definition for singly-linked list.
-class ListNode {
-     int val;
-     ListNode next;
-     ListNode(int x) {
-        val = x;
-        next = null;
-     }
-}
-
+Sort a linked list in O(n log n) time using constant space complexity.
+*/
+package ListUtil;
+import ListUtil.*;
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
 public class SortList {
     public ListNode sortList(ListNode head) {
         return mergeSort(head);
@@ -73,45 +77,12 @@ public class SortList {
         return merge(first,mid);
     }
     
-    private static int[] RandomArray(int length) {
-	int[] arr = new int[length];
-	java.util.ArrayList<Integer> alist = new java.util.ArrayList<Integer>();
-		
-	for(int i=0;i<=arr.length;i++)
-	    alist.add(i);
-    	
-    	java.util.Collections.shuffle(alist);
-    	
-	for(int i=0;i<arr.length;i++)
-    	    arr[i] = alist.get(i);
-    		
-    	return arr;
-    }
-    
-    private static ListNode buildList(int[] arr){
-	ListNode head = new ListNode(0);
-        ListNode curr = head;
-        for(int i:arr){
-             curr.next = new ListNode(i);
-             curr = curr.next;
-        }
-        return head.next;
-    }
-    
-    private static void printList(ListNode head){
-    	while(head!=null){
-    	    System.out.print(head.val+" ");
-            head = head.next;	    
-    	}  
-        System.out.println();  	 
-    }
-    
     public static void main(String args[]){
-	int[] arr = RandomArray(20);
-	SortList sol = new SortList();
-        ListNode head = sol.buildList(arr);
-        sol.printList(head);
+    	int[] arr = ListUtil.RandomArray(20,10);
+        SortList sol = new SortList();
+        ListNode head = ListUtil.buildList(arr);
+        ListUtil.printList(head);
         head = sol.sortList(head);
-        sol.printList(head);
+        ListUtil.printList(head);
     }
 }
