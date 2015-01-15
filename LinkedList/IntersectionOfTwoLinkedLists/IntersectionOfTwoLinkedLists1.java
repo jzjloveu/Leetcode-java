@@ -19,17 +19,19 @@ Notes:
 * You may assume there are no cycles anywhere in the entire linked structure.
 * Your code should preferably run in O(n) time and use only O(1) memory.
 */
-
-// Definition for singly-linked list.
-class ListNode {
-     int val;
-     ListNode next;
-     ListNode(int x) {
-        val = x;
-        next = null;
-     }
-}
-
+package ListUtil;
+import ListUtil.*;
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
 public class IntersectionOfTwoLinkedLists1 {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         if(headA == null || headB == null) return null;
@@ -47,32 +49,14 @@ public class IntersectionOfTwoLinkedLists1 {
         }
     }
 
-    private static ListNode buildList(int[] arr){
-	ListNode head = new ListNode(0);
-        ListNode curr = head;
-        for(int i:arr){
-             curr.next = new ListNode(i);
-             curr = curr.next;
-        }
-        return head.next;
-    }
-    
-    private static void printList(ListNode head){
-    	while(head!=null){
-    	    System.out.print(head.val+" ");
-            head = head.next;
-            if(head!=null) System.out.print("-> ");	    
-    	}  
-        System.out.println();  	 
-    }
-    
     public static void main(String args[]){
-	IntersectionOfTwoLinkedLists1 sol = new IntersectionOfTwoLinkedLists1();
-    ListNode headA = buildList(new int[]{2,3});
-    ListNode headB = buildList(new int[]{4,5,6});
-    ListNode headC = buildList(new int[]{8,9,10});
-    headA.next.next=headC; headB.next.next.next=headC; 
-    System.out.println((sol.getIntersectionNode(headA,headB)).val);
+    	IntersectionOfTwoLinkedLists sol = new IntersectionOfTwoLinkedLists();
+        ListNode headA = ListUtil.buildList(new int[]{2,3});
+        ListNode headB = ListUtil.buildList(new int[]{4,5,6});
+        ListNode headC = ListUtil.buildList(new int[]{8,9,10});
+        headA.next.next=headC; headB.next.next.next=headC; 
+        ListUtil.printList(headA); ListUtil.printList(headB);
+        System.out.println((sol.getIntersectionNode(headA,headB)).val);
     }
 }
 
