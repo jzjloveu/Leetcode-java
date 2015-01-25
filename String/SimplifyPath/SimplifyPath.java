@@ -38,7 +38,7 @@ public class SimplifyPath {
         String path1 = "/home/";
     	String path2 = "/a/./b/../../c/";
 		String path3 = "/../";
-    	String path4 = "/home//foo/";
+    	String path4 = "/...";//"/home//foo/";
         System.out.println((new SimplifyPath()).simplifyPath(path1));
 		System.out.println((new SimplifyPath()).simplifyPath(path2));
 		System.out.println((new SimplifyPath()).simplifyPath(path3));

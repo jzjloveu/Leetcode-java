@@ -41,7 +41,7 @@ public class ListUtil {
         System.out.println();    
     }
 
-    public static void printList(ListNode[] lists){
+    public static void printLists(ListNode[] lists){
         for(ListNode head: lists){
             while(head!=null){
                 System.out.print(head.val+" ");

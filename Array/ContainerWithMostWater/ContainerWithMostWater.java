@@ -16,8 +16,8 @@ public class ContainerWithMostWater {
         int l = 0, r = height.length - 1, maxWater = -1;
         while(l < r){
           maxWater = Math.max(maxWater, Math.min(height[l],height[r])*(r-l));
-          if(height[l] < height[r]) { l++; }
-          else { r--; }
+          if(height[l] <= height[r]) l++;
+          else r--;
         }
         return maxWater; 
     }
@@ -35,11 +35,12 @@ Compute the current area, move the smaller pointer to its direction,
 until two pointers meet.  For example: height = [1,5,3,7]
                 _
                | |
-      _        | |
-     | |       | |
-     | |   _   | |
-     | |  | |//| |
- _   | |  | |//| |
-| |  | |  | |//| | 
+      _ _______| |
+     | |///////| |
+     | |///////| |
+     | |//|/|//| |
+ _   | |//|/|//| |
+| |  | |//|/|//| | 
 ------------------
+ r ->        <- l
 */

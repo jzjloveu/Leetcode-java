@@ -35,15 +35,13 @@ public class SudokuSolver {
               for (k = 0; k < 9; k++) {
                 if (!r[m][k] && !c[n][k] && !g[m/3][n/3][k]) {
                   r[m][k] = c[n][k] = g[m/3][n/3][k] = true;
-                  board[m][n] = (""+(k+1)).charAt(0);
-                  if (sudokuDFS(board,m,n,r,c,g))
-                    return true;
+                  board[m][n] = (char)(k+'1');
+                  if (sudokuDFS(board,m,n,r,c,g)) return true;
                   board[m][n] = '.';
                   r[m][k] = c[n][k] = g[m/3][n/3][k] = false;
                 }
               }
-              if (k == 9)  // no such number possible, dead
-                return false;
+              if (k == 9) return false; // no such number possible, dead
             }
           }
         }
@@ -71,9 +69,10 @@ public class SudokuSolver {
 }
 
 /*
+Using DFS. 
 As the Sudoku has fixed size of board (9x9), the check procedure 
-can be solved using just "for loop"
+can be solved using just "for loop".
 1. Check the rows and columns respectively, a mark array is used 
-to check the numbers.
+   to check the numbers.
 2. Check the 3x3 blocks, also using a mark array.
 */

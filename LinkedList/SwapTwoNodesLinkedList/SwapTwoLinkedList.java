@@ -1,22 +1,26 @@
-// Swap a linked list elements m and n. 
+/*
+Swap a linked list elements m and n. 
 
-// For example:
-// Given 1->2->3->4->5->NULL, m=2 and n=4
-// return 1->4->3->2->5->NULL
-
-// Definition for singly-linked list.
-class ListNode {
-     int val;
-     ListNode next;
-     ListNode(int x) {
-        val = x;
-        next = null;
-     }
-}
-
+For example:
+Given 1->2->3->4->5->NULL, m=2 and n=4
+return 1->4->3->2->5->NULL
+*/
+package ListUtil;
+import ListUtil.*;
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
 public class SwapTwoLinkedList {
     public ListNode swapTwoLinkedList(ListNode head, int m, int n) {
-	if(head == null){ return null;}
+        if(head == null){ return null;}
         int min = (m < n)?m:n;
         n = (m < n)?n:m;
         m = min;
@@ -28,8 +32,7 @@ public class SwapTwoLinkedList {
         while(count < n-1 && first.next!=null){
             first = first.next;
             count += 1;
-            if(count > n-m)
-                second = second.next;
+            if(count > n-m) second = second.next;
         }
         if(first.next == null){ return null;}
         ListNode temp = second.next;
@@ -52,8 +55,7 @@ public class SwapTwoLinkedList {
         while(count < n-1 && first!=null){
             first = first.next;
             count += 1;
-            if(count > n-m)
-                second = second.next;
+            if(count > n-m) second = second.next;
         }
         if(first == null){ return null;}
         int temp = first.val;
@@ -61,35 +63,16 @@ public class SwapTwoLinkedList {
         second.val = temp;
         return head;
     }
-      
-    private static ListNode buildList(int[] arr){
-	ListNode head = new ListNode(0);
-        ListNode curr = head;
-        for(int i:arr){
-		curr.next = new ListNode(i);
-		curr = curr.next;
-        }
-        return head.next;
-    }
-    
-    private static void printList(ListNode head){
-        if (head==null){ System.out.print("null");}
-    	while(head!=null){
-		System.out.print(head.val+" ");
-		head = head.next;	    
-    	}  
-        System.out.println();  	 
-    }
     
     public static void main(String args[]){
-	int[] arr = {1,2,3,4,5,6,7,8,9};
-	SwapTwoLinkedList sol = new SwapTwoLinkedList();
-        ListNode head = sol.buildList(arr);
-        sol.printList(head);
+        int[] arr = {1,2,3,4,5,6,7,8,9};
+        SwapTwoLinkedList sol = new SwapTwoLinkedList();
+        ListNode head = ListUtil.buildList(arr);
+        ListUtil.printList(head);
         head = sol.swapTwoLinkedList(head,1,9);
-        sol.printList(head);
+        ListUtil.printList(head);
         head = sol.swapTwoLinkedList2(head,1,9);
-        sol.printList(head);
+        ListUtil.printList(head);
     }
 }
 /* 

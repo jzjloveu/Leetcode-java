@@ -27,9 +27,8 @@ public class MinDistance {
 				if(word1.charAt(i-1) == word2.charAt(j-1))
 					step[i][j] = step[i-1][j-1];
 				else{
-					int min = (step[i-1][j]<step[i][j-1])?step[i-1][j]:step[i][j-1];
-                    if(step[i-1][j-1] < min)
-						min = step[i-1][j-1];
+					int min = Math.min(step[i-1][j],step[i][j-1]);
+                    min = Math.min(min,step[i-1][j-1]);
                     step[i][j] = min + 1;
 				}
 			}
@@ -47,11 +46,11 @@ Dynamic programming. Let dp[i][j] indicate the steps (edit distance) of changing
 word1's first i letters to word2's first j letters. If word1's ith letter equals 
 to word2's jth letter, then dp[i][j] = dp[i-1][j-1]. If not, 3 cases:
 1) Change word1's first i-1 letters to word2's j-1 letters, then change word1's 
-ith letter to word2's jth letter, i.e. dp[i-1][j-1] + 1
+   ith letter to word2's jth letter, i.e. dp[i-1][j-1] + 1
 2) Change word1's first i letters to word2's first j-1 letters, then add word2's 
-jth letter, i.e. dp[i][j-1] + 1
+   jth letter, i.e. dp[i][j-1] + 1
 3) Delete word1's ith letter, then change word1's first i-1 letters to word2's first 
-j letters, i.e. 1 + dp[i-1][j]
+   j letters, i.e. 1 + dp[i-1][j]
 dp[i][j] is the min value of the above 3 cases. Initialization: 
 dp[i][0] = i (0 <= i <= word1 length), dp[0][j] = j (0 <= j <= word2 length).
 */

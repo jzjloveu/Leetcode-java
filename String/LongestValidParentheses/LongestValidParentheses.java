@@ -1,7 +1,8 @@
 /*
 Longest Valid Parentheses
 
-Given a string containing just the characters '(' and ')', find the length of the longest valid (well-formed) parentheses substring.
+Given a string containing just the characters '(' and ')', find the length of the longest 
+valid (well-formed) parentheses substring.
 
 For "(()", the longest valid parentheses substring is "()", which has length = 2.
 
@@ -35,4 +36,12 @@ public class LongestValidParentheses {
     }
 }
 
-
+/*
+Stack is used to stored the character.
+If current character is '(', push into the stack.
+If current character is ')',
+    Case 1: the stack is empty, reset previous result to zero. Here we renew a pointer to store the earliest index.
+    Case 2: the stack is not empty, pop the top element. if the top element is '(' , (which means a () pair is found), 
+            then if the poped stack is empty, (which means the previous pairs should be added.), 
+            len = current pos - previous pos +1; If the poped stack is not empty, len = current pos- index of stack top element.
+*/

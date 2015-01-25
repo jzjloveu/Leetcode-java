@@ -1,34 +1,30 @@
-// Word Break II 
+/*
+Word Break II 
 
-// Given a string s and a dictionary of words dict, add spaces in s to construct a sentence where each word is a valid dictionary word.
+Given a string s and a dictionary of words dict, add spaces in s to construct 
+a sentence where each word is a valid dictionary word.
 
-// Return all such possible sentences.
+Return all such possible sentences.
 
-// For example, given
-// s = "catsanddog",
-// dict = ["cat", "cats", "and", "sand", "dog"].
+For example, given
+s = "catsanddog",
+dict = ["cat", "cats", "and", "sand", "dog"].
 
-// A solution is ["cats and dog", "cat sand dog"]. 
+A solution is ["cats and dog", "cat sand dog"]. 
+*/
+import java.util.*;
 
-import java.util.Set;
-import java.util.HashSet;
-import java.util.ArrayList;
-import java.util.List;
 public class WordBreakII {
-    // Using dynamic programming, we keep in the ith element of an array all the posible sentences from the ith letter.
     public List<String> wordBreakII(String s, Set<String> dict) {
-	ArrayList words[] = new ArrayList[s.length()];
+        ArrayList words[] = new ArrayList[s.length()];
         for(int i=s.length()-1; i>=0; i--){
             words[i] = new ArrayList<String>();
             for(int j=i+1; j<=s.length(); j++){
                 if(dict.contains(s.substring(i,j))){
-                    if(j==s.length()){
-                        words[i].add(s.substring(i,j));
-                    }
-                    else {
+                    if(j==s.length()) words[i].add(s.substring(i,j));
+                    else 
                         for(int k=0; k<words[j].size(); k++)
-                            words[i].add(s.substring(i,j)+" "+words[j].get(k));
-                    }
+                            words[i].add(s.substring(i,j)+" "+words[j].get(k)); 
                 }
             }
         }
@@ -45,3 +41,7 @@ public class WordBreakII {
 		System.out.println(slist.get(i));
     }
 }
+/*
+Using dynamic programming, we keep in the ith element of an array all the 
+posible sentences from the ith letter.
+*/

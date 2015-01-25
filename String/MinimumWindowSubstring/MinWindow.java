@@ -1,23 +1,27 @@
-// Minimum Window Substring 
+/*
+Minimum Window Substring 
 
-//Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).
+Given a string S and a string T, find the minimum window in S which will 
+contain all the characters in T in complexity O(n).
 
-//For example, 
-//S = "ADOBECODEBANC"
-//T = "ABC"
-//Minimum window is "BANC".
+For example, 
+S = "ADOBECODEBANC"
+T = "ABC"
+Minimum window is "BANC".
 
-//Note:
-//If there is no such window in S that covers all characters in T, return the emtpy string "".
+Note:
+If there is no such window in S that covers all characters in T, 
+return the emtpy string "".
 
-//If there are multiple such windows, you are guaranteed that there will always be only one unique minimum window in S.
-
+If there are multiple such windows, you are guaranteed that there 
+will always be only one unique minimum window in S.
+*/
 public class MinWindow {
    
     public String minWindow(String S, String T) {
         if(S.length() == 0) return "";  
         if(S.length() < T.length()) return "";            
-        int[] appearCount = new int[256];  
+        int[] appearCount = new int[256];  // ASCII code size is 256
         int[] expectCount = new int[256];  
         for(int i =0; i < T.length(); i++)  
              expectCount[(int)T.charAt(i)]++;                 
@@ -32,7 +36,8 @@ public class MinWindow {
                         appeared++;                      
               }  
               if(appeared == T.length())  {                 
-                   while(appearCount[(int)S.charAt(winStart)] > expectCount[(int)S.charAt(winStart)] || expectCount[(int)S.charAt(winStart)] == 0) {  
+                   while(appearCount[(int)S.charAt(winStart)] > expectCount[(int)S.charAt(winStart)] 
+                    || expectCount[(int)S.charAt(winStart)] == 0) {  
                         appearCount[(int)S.charAt(winStart)]--;  
                         winStart++;  
                    }                      
@@ -52,6 +57,7 @@ public class MinWindow {
         System.out.println((new MinWindow()).minWindow(S,T));
     }
 }
+
 /*
 The idea is like this:
    We have two pointers, p and q.  S[p:q] stores the string covers all the chars in T. We want minimum p:q.

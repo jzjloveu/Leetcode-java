@@ -14,7 +14,7 @@ import java.util.*;
 public class BestTimeToBuyAndSellStockIII {
    
     public int maxProfit(int[] prices) {
-        if(prices.length == 0){ return 0;}
+        if(prices.length == 0) return 0;
         int maxp = 0, minp = prices[0], end = prices[prices.length-1];
         int[] mp = new int[prices.length];
         for(int i=0;i<prices.length;i++){
@@ -31,13 +31,12 @@ public class BestTimeToBuyAndSellStockIII {
     }
     public static void main(String args[]){
         int[] A = {13,-3,-25,20,-3,-16,-23,18,20,-7,12,-5,-22,15,-4,7};
-
         System.out.println((new BestTimeToBuyAndSellStockIII()).maxProfit(A));
     }
 }
 
 /*
-The idea is from dynamic programming, the max profit at day i is the max profit before 
+The idea is from dynamic programming(DP), the max profit at day i is the max profit before 
 day i + max profit after day i. So there is one loop O(n) to compute the max profit before 
 each each day and another loop O(n) to get the final max profit by compute the max profit 
 after each day reversely and combine the "before day" max profit.

@@ -29,14 +29,14 @@ public class SwapNodesInPairs {
         curr.next = head;
         head = curr;
         while(true){
-		if(curr.next == null){ break;}
-		if(curr.next.next == null){ break;}
-		ListNode p1 = curr.next;
-		ListNode p2 = p1.next;
-		p1.next = p2.next;
-		p2.next= p1;
-		curr.next = p2;
-		curr = p1;
+    		if(curr.next == null){ break;}
+    		if(curr.next.next == null){ break;}
+    		ListNode p1 = curr.next;
+    		ListNode p2 = p1.next;
+    		p1.next = p2.next;
+    		p2.next= p1;
+    		curr.next = p2;
+    		curr = p1;
         }
         return head.next; 
     }

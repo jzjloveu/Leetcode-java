@@ -61,6 +61,7 @@ public class PopulatingNextRightPointersInEachNodeII  {
         // TreeNode root = TreeUtil.buildLeetTree(arr);
         PopulatingNextRightPointersInEachNodeII sol = 
             new PopulatingNextRightPointersInEachNodeII();
+        // sol.connect(root);
         // TreeGphicPrint.printTree(root);
     }
 }

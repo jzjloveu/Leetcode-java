@@ -1,7 +1,9 @@
 /*
 Substring with Concatenation of All Words
 
-You are given a string, S, and a list of words, L, that are all of the same length. Find all starting indices of substring(s) in S that is a concatenation of each word in L exactly once and without any intervening characters.
+You are given a string, S, and a list of words, L, that are all of the same length. 
+Find all starting indices of substring(s) in S that is a concatenation of each word 
+in L exactly once and without any intervening characters.
 
 For example, given:
 S: "barfoothefoobarman"
@@ -12,7 +14,7 @@ You should return the indices: [0,9].
 */
 import java.util.*;
 
-public class FindSubstring {
+public class SubstringWithConcatenationOfAllWords {
    
     public List<Integer> findSubstring(String S, String[] L) {
         List<Integer> result = new ArrayList<Integer>();
@@ -21,12 +23,11 @@ public class FindSubstring {
         for(int i=0;i<S.length()-num*wlen+1;i++){
             ArrayList<String> slist = new ArrayList<String>();
             for(int j=i;j<i+num*wlen;j+=wlen)  slist.add(S.substring(j,j+wlen));
-            boolean found = true;
             for(String word:L){
                 if(slist.contains(word)) slist.remove(word);
-                else{found = false; break;}
+                else break;
             }
-            if(found) result.add(i);
+            if(slist.isEmpty()) result.add(i);
         }
         return result;
     }
@@ -43,7 +44,7 @@ public class FindSubstring {
     public static void main(String args[]){
         String S = "lingmindraboofooowingdingbarrwingmonkeypoundcake";//"barfoothefoobarman";
         String[] L = {"fooo","barr","wing","ding","wing"};//{"foo", "bar"};
-        List<Integer> res = (new FindSubstring()).findSubstring(S,L);
+        List<Integer> res = (new SubstringWithConcatenationOfAllWords()).findSubstring(S,L);
         System.out.print("[");
         for(int i=0;i<res.size();i++){
             if(i<res.size()-1) System.out.print(res.get(i)+",");
@@ -59,6 +60,7 @@ What string is required to match in S?     A length of m*n string start with eac
 What is a match?  In the m*n long string, every string in L appear only once.
 
 So the algorithm is:
-Scan every m*n long string start from each position in S, see if all the strings in L have been appeared only once using Map data structure. If so, store the starting position.
+Scan every m*n long string start from each position in S, see if all the strings in L have been 
+appeared only once using Map data structure. If so, store the starting position.
 */
 

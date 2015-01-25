@@ -22,7 +22,7 @@ Could you devise a constant space solution?
 import treeUtil.*;
 
 public class RecoverBinarySearchTree {
-    TreeNode last, first, second;
+    private TreeNode last, first, second;
     public void recoverTree(TreeNode root) {
         last = first = second = null;
         dfs(root);
@@ -37,8 +37,8 @@ public class RecoverBinarySearchTree {
         if (node == null) return;
         dfs(node.left);
         if (last != null && node.val < last.val){
-            if (first == null) { first=last; second=node;}
-            else second = node;
+            if (first == null) first=last; 
+            second = node;
         }
         last = node;
         dfs(node.right);
@@ -57,14 +57,14 @@ public class RecoverBinarySearchTree {
 DFS, in-order tree traversal recursively.
 What we need is actually two pointers, which point to 2 tree nodes where is incorrect. 
 Therefore, we only need to store these two pointers, and, we also need another pointer 
-to store the previous element, in order to ompare if the current element is valid or not.
+to store the previous element, in order to compare if the current element is valid or not.
 
 The last step is to replace the wrong pair's value. And the in-order traversal is to search the 
 whole BST and find the wrong pairs.
 
 Note that: 
-(1)the previous element is NOT the root node of the current element, 
-but the previous element in the "in-order" order; 
-(2) To store the wrong pair, the first found wrong element is stored in first pointer, 
-while the next is stored in the second pointer.
+(1)The previous element is NOT the root node of the current element, 
+   but the previous element in the "in-order" order; 
+(2)To store the wrong pair, the first found wrong element is stored in first pointer, 
+   while the next is stored in the second pointer.
 */

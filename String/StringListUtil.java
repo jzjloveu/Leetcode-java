@@ -6,8 +6,8 @@ public class StringListUtil {
   public static void printList(List<String> arr){
         System.out.print("[");
         for(int i=0;i<arr.size();i++){
-            if(i<arr.size()-1) System.out.print(arr.get(i)+",");
-            else System.out.print(arr.get(i));
+            if(i<arr.size()-1) System.out.print("\""+arr.get(i)+"\""+",");
+            else System.out.print("\""+arr.get(i)+"\"");
         }
         System.out.print("]\n"); 
   }
@@ -20,9 +20,9 @@ public class StringListUtil {
         System.out.print("[");
         for(int j=0;j<alist.get(i).size();j++){
           if(j == alist.get(i).size()-1)
-            System.out.print(alist.get(i).get(j));
+            System.out.print("\""+alist.get(i).get(j)+"\"");
           else
-            System.out.print(alist.get(i).get(j)+",");
+            System.out.print("\""+alist.get(i).get(j)+"\""+",");
         }
         if(i == alist.size()-1)
           System.out.print("]");
